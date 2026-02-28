@@ -12,6 +12,8 @@ def test_strip_provider_prefixes():
     assert strip_provider_prefixes("anthropic/claude-3") == "claude-3"
     assert strip_provider_prefixes("openai/gpt-4") == "gpt-4"
     assert strip_provider_prefixes("gemini/gemini-pro") == "gemini-pro"
+    assert strip_provider_prefixes("nvidia_nim/z-ai/glm5") == "z-ai/glm5"
+    assert strip_provider_prefixes("open_router/stepfun-ai/step-3.5-flash") == "stepfun-ai/step-3.5-flash"
     assert strip_provider_prefixes("no-prefix") == "no-prefix"
 
 
@@ -57,6 +59,8 @@ def test_normalize_model_name_without_default(monkeypatch):
         ("anthropic/claude-3", "claude-3"),
         ("openai/gpt-4", "gpt-4"),
         ("gemini/gemini-pro", "gemini-pro"),
+        ("nvidia_nim/z-ai/glm5", "z-ai/glm5"),
+        ("open_router/google/gemma-3-4b-it", "google/gemma-3-4b-it"),
         ("no-prefix", "no-prefix"),
         ("", ""),
         ("anthropic/", ""),
@@ -66,6 +70,8 @@ def test_normalize_model_name_without_default(monkeypatch):
         "anthropic",
         "openai",
         "gemini",
+        "nvidia_nim",
+        "open_router",
         "no_prefix",
         "empty_string",
         "prefix_only",

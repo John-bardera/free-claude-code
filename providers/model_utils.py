@@ -3,10 +3,8 @@
 Centralizes model name mapping logic to avoid duplication across the codebase.
 """
 
-import os
-
 # Provider prefixes to strip from model names
-_PROVIDER_PREFIXES = ["anthropic/", "openai/", "gemini/"]
+_PROVIDER_PREFIXES = ["anthropic/", "openai/", "gemini/", "nvidia_nim/", "open_router/"]
 
 # Claude model identifiers
 _CLAUDE_IDENTIFIERS = ["haiku", "sonnet", "opus", "claude"]
